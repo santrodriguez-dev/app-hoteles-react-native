@@ -1,66 +1,169 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, Text, ScrollView } from 'react-native'
+import ItemHotel from './item-hotel/item-hotel';
+import { Button } from 'react-native-elements';
 
-import { Button, Card, Rating } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+const HotelList = ({ navigation }) => {
 
-const HotelList = () => {
+  const hotelList = [
+    {
+      "_id": "5e0e0e235e38323054d37f5b",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "1",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f51",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "2",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f52",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f53",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f54",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f55",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f56",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f57",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f58",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f59",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f10",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f11",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f12",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f13",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "5",
+      "price": 1000
+    },
+    {
+      "_id": "5e0e0e235e38323054d37f14",
+      "images": [
+        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+      ],
+      "name": "hotelEjemplo",
+      "stars": "4",
+      "price": 1000
+    }
+  ]
 
   return (
-    <View>
-      <Text>Lista de hoteles</Text>
+    <ScrollView>
+
       <Button
-        icon={
-          <Icon
-            name="arrow-right"
-            size={15}
-            color="white"
-          />
-        }
-        iconRight
-        title="Button with right icon"
+        title="Go to Jane's profile"
+        onPress={() => navigation.navigate('HotelDetail', { name: 'Jane' })}
       />
 
-      <Card>
-
-
-        {/* <Text >Santiago</Text> */}
-        <Image
-          source={{ uri: 'https://www.ghlhoteles.com/cache/a6/5f/a65f8bc24a15bd60e379ad8b1a308be8.jpg', width: 100, height: 20 }}
-        />
-        <View style={Styles.footer_card}>
-
-          <View>
-            <Text>Hotel Portobelo</Text>
-            <Rating
-              ratingCount={5}
-              readonly
-              imageSize={20}
-              startingValue={4}
-            />
-          </View>
-
-          <View>
-            <Text>Precio por noche</Text>
-            <Text>COP $ 425.000</Text>
-          </View>
-
-        </View>
-
-
-      </Card>
-
-
-    </View>
+      {hotelList.map((item, i) => (
+        <ItemHotel key={i}
+          id={item._id}
+          hotelName={item.name}
+          price={item.price}
+          stars={item.stars} />
+      )
+      )}
+    </ScrollView>
   )
 }
 
-const Styles = StyleSheet.create({
-  footer_card: {
-    display: 'flex',
-    flexDirection: 'row'
-  }
-});
+
 
 export default HotelList
 
