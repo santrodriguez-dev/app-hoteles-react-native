@@ -11,10 +11,12 @@ const HotelDetail = (props) => {
     "hotelName": null,
     "price": null,
     "stars": null,
+    "address": null,
+    "image": null,
   })
 
   useEffect(() => {
-    console.log(props);
+    // console.log(props);
     setHotelData(navigation.state.params)
   }, [])
 
@@ -25,7 +27,7 @@ const HotelDetail = (props) => {
           <Text style={Styles.header_title}>{hotelData.hotelName}</Text>
           <Rating
             ratingCount={5}
-            readonly
+            // readonly
             imageSize={30}
             startingValue={hotelData.stars}
             style={{ marginBottom: 5 }}
@@ -38,13 +40,13 @@ const HotelDetail = (props) => {
               color='gray'
               style={{ marginHorizontal: 50 }}
             />
-            <Text style={{ fontSize: 18, marginLeft: 20 }}>{'Cra 86 N75a-85'}</Text>
+            <Text style={{ fontSize: 18, marginLeft: 20 }}>{hotelData.address}</Text>
           </View>
         </View>
 
         <View style={{ height: 170 }}>
           <Image
-            source={{ uri: 'https://www.ghlhoteles.com/cache/a6/5f/a65f8bc24a15bd60e379ad8b1a308be8.jpg' }}
+            source={{ uri: hotelData.image || 'https://www.ghlhoteles.com/cache/a6/5f/a65f8bc24a15bd60e379ad8b1a308be8.jpg' }}
             style={Styles.image_card}
           />
         </View>

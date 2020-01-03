@@ -14,7 +14,7 @@ const MainNavigator = createStackNavigator(
     },
     HotelDetail: {
       screen: HotelDetail, navigationOptions: {
-        headerTitle: () => <Text style={Styles.card}>Lista de hoteles</Text>,
+        headerTitle: () => <Text style={Styles.card}>Hotel</Text>,
       }
     }
   },

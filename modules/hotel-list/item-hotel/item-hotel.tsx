@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { Card, Rating } from 'react-native-elements'
 
-export const ItemHotel = ({ hotelName = 'Sin nombre', price, stars, id, navigation }) => {
+export const ItemHotel = ({ hotelName = 'Sin nombre', price, stars, id, navigation, image, address }) => {
 
   const redirectToDetail = () => {
     navigation.navigate('HotelDetail', {
       hotelName,
       price,
-      stars
+      stars,
+      id,
+      address,
+      image
     });
   }
 
@@ -17,7 +20,7 @@ export const ItemHotel = ({ hotelName = 'Sin nombre', price, stars, id, navigati
       <Card containerStyle={Styles.card}>
         {/* <Text >Santiago</Text> */}
         <Image
-          source={{ uri: 'https://www.ghlhoteles.com/cache/a6/5f/a65f8bc24a15bd60e379ad8b1a308be8.jpg' }}
+          source={{ uri: image || 'https://www.ghlhoteles.com/cache/a6/5f/a65f8bc24a15bd60e379ad8b1a308be8.jpg' }}
           style={Styles.image_card}
         />
         <View style={Styles.footer_card}>
