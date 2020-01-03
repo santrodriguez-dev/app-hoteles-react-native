@@ -1,9 +1,24 @@
-import React from 'react'
-import { StyleSheet, Text, ScrollView } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { ScrollView } from 'react-native'
 import ItemHotel from './item-hotel/item-hotel';
-import { Button } from 'react-native-elements';
+import { SearchBar } from 'react-native-elements';
+
+import { HotelService } from "../services/hotel-service";
 
 const HotelList = ({ navigation }) => {
+
+  const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    // getHotels()
+  }, [])
+
+  const getHotels = () => {
+    HotelService.getAll().then(response => {
+      if (!response) return
+      console.log(response);
+    })
+  }
 
   const hotelList = [
     {
@@ -11,8 +26,8 @@ const HotelList = ({ navigation }) => {
       "images": [
         "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
       ],
-      "name": "hotelEjemplo",
-      "stars": "1",
+      "name": "Hotel Palo alto",
+      "stars": 4,
       "price": 1000
     },
     {
@@ -20,8 +35,8 @@ const HotelList = ({ navigation }) => {
       "images": [
         "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
       ],
-      "name": "hotelEjemplo",
-      "stars": "2",
+      "name": "Santiago Rodriguez",
+      "stars": 4,
       "price": 1000
     },
     {
@@ -30,7 +45,7 @@ const HotelList = ({ navigation }) => {
         "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
       ],
       "name": "hotelEjemplo",
-      "stars": "5",
+      "stars": 3,
       "price": 1000
     },
     {
@@ -39,7 +54,7 @@ const HotelList = ({ navigation }) => {
         "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
       ],
       "name": "hotelEjemplo",
-      "stars": "5",
+      "stars": 4,
       "price": 1000
     },
     {
@@ -48,7 +63,7 @@ const HotelList = ({ navigation }) => {
         "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
       ],
       "name": "hotelEjemplo",
-      "stars": "5",
+      "stars": 0,
       "price": 1000
     },
     {
@@ -57,113 +72,37 @@ const HotelList = ({ navigation }) => {
         "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
       ],
       "name": "hotelEjemplo",
-      "stars": "5",
-      "price": 1000
-    },
-    {
-      "_id": "5e0e0e235e38323054d37f56",
-      "images": [
-        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
-      ],
-      "name": "hotelEjemplo",
-      "stars": "5",
-      "price": 1000
-    },
-    {
-      "_id": "5e0e0e235e38323054d37f57",
-      "images": [
-        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
-      ],
-      "name": "hotelEjemplo",
-      "stars": "5",
-      "price": 1000
-    },
-    {
-      "_id": "5e0e0e235e38323054d37f58",
-      "images": [
-        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
-      ],
-      "name": "hotelEjemplo",
-      "stars": "5",
-      "price": 1000
-    },
-    {
-      "_id": "5e0e0e235e38323054d37f59",
-      "images": [
-        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
-      ],
-      "name": "hotelEjemplo",
-      "stars": "5",
-      "price": 1000
-    },
-    {
-      "_id": "5e0e0e235e38323054d37f10",
-      "images": [
-        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
-      ],
-      "name": "hotelEjemplo",
-      "stars": "5",
-      "price": 1000
-    },
-    {
-      "_id": "5e0e0e235e38323054d37f11",
-      "images": [
-        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
-      ],
-      "name": "hotelEjemplo",
-      "stars": "5",
-      "price": 1000
-    },
-    {
-      "_id": "5e0e0e235e38323054d37f12",
-      "images": [
-        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
-      ],
-      "name": "hotelEjemplo",
-      "stars": "5",
-      "price": 1000
-    },
-    {
-      "_id": "5e0e0e235e38323054d37f13",
-      "images": [
-        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
-      ],
-      "name": "hotelEjemplo",
-      "stars": "5",
-      "price": 1000
-    },
-    {
-      "_id": "5e0e0e235e38323054d37f14",
-      "images": [
-        "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
-      ],
-      "name": "hotelEjemplo",
-      "stars": "4",
-      "price": 1000
+      "stars": 4,
+      "price": 2000
     }
   ]
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: '#e7e7e7' }}>
 
-      <Button
-        title="Go to Jane's profile"
-        onPress={() => navigation.navigate('HotelDetail', { name: 'Jane' })}
+      <SearchBar
+        placeholder="Busca un hotel aquí..."
+        containerStyle={{ backgroundColor: 'white', padding: 0, margin: 10, marginBottom: 0, borderRadius: 3, overflow: 'hidden' }}
+        inputContainerStyle={{ backgroundColor: 'white' }}
+        onChangeText={(e) => setSearch(e)}
+        value={search}
+        clearButtonMode={'always'}
+        lightTheme
       />
 
-      {hotelList.map((item, i) => (
+      {hotelList.filter(e => {
+        return e.name.toUpperCase().indexOf(search.toUpperCase().trim()) > -1
+      }).map((item, i) => (
         <ItemHotel key={i}
           id={item._id}
           hotelName={item.name}
           price={item.price}
-          stars={item.stars} />
+          stars={item.stars}
+          navigation={navigation} />
       )
       )}
     </ScrollView>
   )
 }
 
-
-
 export default HotelList
-
