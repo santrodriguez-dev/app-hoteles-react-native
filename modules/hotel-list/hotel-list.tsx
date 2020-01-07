@@ -82,7 +82,7 @@ const HotelList = ({ navigation }) => {
       if (!response) return
       setHotelList(response)
     }).catch(error => {
-      console.log('No hay conexion de red');
+      console.log('No es posible conectarse al servidor');
       setHotelList(hotelListinitial)// En caso de error de red se setea informacion de prueba
     })
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { HotelList, HotelDetail } from './modules';
+import { HotelList, HotelDetail, TestNotification } from './modules';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -9,12 +9,22 @@ const MainNavigator = createStackNavigator(
   {
     HotelList: {
       screen: HotelList, navigationOptions: {
-        headerTitle: () => <Text style={Styles.card}>Lista de hoteles</Text>
-      }
+        headerTitle: () => <Text style={Styles.card}>Lista de hoteles</Text>,
+        gestureDirection: 'vertical-inverted',
+        // headerLeft: null,
+        gestureEnabled: false
+      },
     },
     HotelDetail: {
       screen: HotelDetail, navigationOptions: {
         headerTitle: () => <Text style={Styles.card}>Hotel</Text>,
+      }
+    },
+    TestNotification: {
+      screen: TestNotification, navigationOptions: {
+        headerTitle: () => <Text style={Styles.card}>Notifications</Text>,
+        gestureDirection: 'vertical',
+        // headerShown: false
       }
     }
   },
